@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Smart Water Tank Monitoring</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header class="topbar">
+
+        <div>
+            <h1>💧 Smart Water Tank</h1>
+            <p>Real-Time Monitoring & Automated Control</p>
+        </div>
+
+        <div class="system-status">
+            <span class="status-dot"></span>
+            System Online
+        </div>
+
+    </header>
+
+
+    <main class="dashboard">
+
+
+        <!-- WATER LEVEL -->
+
+        <section class="level-card">
+
+            <div>
+
+                <span class="label">
+                    WATER LEVEL
+                </span>
+
+                <h2 id="waterLevel">
+                    --
+                </h2>
+
+                <div id="waterLevelStatus"
+                     class="decision normal">
+                    WAITING
+                </div>
+
+                <p>
+                    Tank level monitoring
+                </p>
+
+            </div>
+
+
+            <div class="tank">
+
+                <div
+                    class="water"
+                    id="waterFill">
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- PUMP -->
+
+        <section class="pump-card">
+
+            <div>
+
+                <span class="label">
+                    PUMP STATUS
+                </span>
+
+                <div
+                    id="pumpStatus"
+                    class="pump-status">
+                    --
+                </div>
+
+                <div
+                    id="pumpDecision"
+                    class="decision normal">
+                    WAITING
+                </div>
+
+                <p>
+                    Automated pump control
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- SENSOR SECTION -->
+
+        <div class="section-title">
+
+            <h2>
+                Sensor Monitoring
+            </h2>
+
+            <p>
+                Live sensor readings and water quality status
+            </p>
+
+        </div>
+
+
+
+        <section class="cards">
+
+
+            <!-- TURBIDITY -->
+
+            <div class="card">
+
+                <div class="icon">
+                    🌫️
+                </div>
+
+                <div>
+
+                    <span>
+                        Turbidity
+                    </span>
+
+                    <h3 id="turbidity">
+                        --
+                    </h3>
+
+                    <small>
+                        ADC Value
+                    </small>
+
+                    <div
+                        id="turbidityStatus"
+                        class="decision normal">
+                        WAITING
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- TDS -->
+
+            <div class="card">
+
+                <div class="icon">
+                    🧪
+                </div>
+
+                <div>
+
+                    <span>
+                        TDS Estimate
+                    </span>
+
+                    <h3 id="tdsEstimate">
+                        --
+                    </h3>
+
+                    <small>
+                        ppm
+                    </small>
+
+                    <div
+                        id="tdsStatus"
+                        class="decision normal">
+                        WAITING
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- TDS VOLTAGE -->
+
+            <div class="card">
+
+                <div class="icon">
+                    ⚡
+                </div>
+
+                <div>
+
+                    <span>
+                        TDS Voltage
+                    </span>
+
+                    <h3 id="tdsVoltage">
+                        --
+                    </h3>
+
+                    <small>
+                        Sensor voltage
+                    </small>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- TDS ADC -->
+
+            <div class="card">
+
+                <div class="icon">
+                    🔢
+                </div>
+
+                <div>
+
+                    <span>
+                        TDS ADC
+                    </span>
+
+                    <h3 id="tdsAdc">
+                        --
+                    </h3>
+
+                    <small>
+                        Raw reading
+                    </small>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ULTRASONIC -->
+
+            <div class="card">
+
+                <div class="icon">
+                    📏
+                </div>
+
+                <div>
+
+                    <span>
+                        Ultrasonic
+                    </span>
+
+                    <h3 id="ultrasonic">
+                        --
+                    </h3>
+
+                    <small>
+                        Distance sensor
+                    </small>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- FLOW RATE -->
+
+            <div class="card">
+
+                <div class="icon">
+                    💦
+                </div>
+
+                <div>
+
+                    <span>
+                        Flow Rate
+                    </span>
+
+                    <h3 id="flowRate">
+                        --
+                    </h3>
+
+                    <small>
+                        Litres / minute
+                    </small>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- TOTAL FLOW -->
+
+            <div class="card">
+
+                <div class="icon">
+                    🚰
+                </div>
+
+                <div>
+
+                    <span>
+                        Total Flow
+                    </span>
+
+                    <h3 id="totalFlow">
+                        --
+                    </h3>
+
+                    <small>
+                        Total litres
+                    </small>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- TDS REFERENCE -->
+
+            <div class="card">
+
+                <div class="icon">
+                    🧾
+                </div>
+
+                <div>
+
+                    <span>
+                        TDS Reference
+                    </span>
+
+                    <h3 id="tdsReference">
+                        --
+                    </h3>
+
+                    <small>
+                        Quality reference
+                    </small>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+
+
+    <footer>
+
+        Smart Water Tank Monitoring System
+        • ESP32 + Firebase
+
+    </footer>
+
+
+
+    <script
+        type="module"
+        src="app.js">
+    </script>
+
+</body>
+</html>
